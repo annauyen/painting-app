@@ -1,0 +1,38 @@
+<div class="container mt-3">
+  <h2>Your cart</h2>
+  <table class="table table-stripe">
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Product name</th>
+        <th>Price</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cartItem of cartItems">
+        <td>{{ cartItem.id }}</td>
+        <td>{{ cartItem.name }}</td>
+        <td>${{ cartItem.price }}</td>
+        <td>
+          <img
+            src="img/{{ cartItem.image_url }}"
+            alt=""
+            class="img-fluid"
+            style="width: 100px"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <div class="row m-3">
+    <div class="col-6">
+      <button class="btn btn-danger" (click)="clearCart()">Clear cart</button>
+    </div>
+    <div class="col-6">
+      <button class="btn btn-primary" (click)="checkOut()">Checkout</button>
+    </div>
+  </div>
+  <h4>Total price: ${{ totalPrice }}</h4>
+</div>

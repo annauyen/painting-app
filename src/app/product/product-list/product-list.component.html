@@ -1,0 +1,56 @@
+<div class="container mt-3">
+  <div class="row">
+    <!-- <div class="card">
+      <div class="card-header">Header</div>
+      <div class="card-body">Content</div>
+      <div class="card-footer">Footer</div>
+    </div> -->
+
+    <h2>Product List</h2>
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Search" />
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field>
+          <mat-select
+            (selectionChange)="sortProduct($event.value)"
+            placeholder="Sort"
+          >
+            <mat-option value="priceLowHigh">Price: Low to High</mat-option>
+            <mat-option value="priceHighLow">Price: High to Low</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div
+        *ngFor="let product of filteredProducts"
+        class="col-lg-3 col-md-4 col-sm-6 mb-4"
+      >
+        <mat-card class="product-card">
+          <img mat-card-image src="img/{{ product.image_url }}" />
+          <div class="overlay"></div>
+          <mat-card-content>
+            <mat-card-title>{{ product.name }}</mat-card-title>
+            <mat-card-subtitle>{{
+              product.price | currency : "USD"
+            }}</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-actions align="start">
+            <button class="btn btn-success" (click)="addToCart(product)">
+              Add
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+    <!-- <ng-template #noProducts>
+  <h2>No Products</h2>
+</ng-template> -->
+  </div>
+</div>

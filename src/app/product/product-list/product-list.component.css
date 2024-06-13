@@ -1,0 +1,41 @@
+.product-card {
+    max-width: 150px;
+}
+
+/* mat-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    margin: auto;
+} */
+
+mat-card {
+    transition: transform .2s;
+}
+
+.sort-dropdown {
+    margin-left: 20px;
+}
+
+.parent {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #000000;
+}
+
+.product-card:hover .overlay {
+    opacity: 0.5;
+    cursor: pointer;
+}
